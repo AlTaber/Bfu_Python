@@ -72,12 +72,12 @@ class Laba8:
         with open(os.path.join(workdata_path, "Learning", "train.csv"), "w+", encoding="utf-8") as f:
             writer = csv.DictWriter(f, fieldnames=self.data[0].keys())
             writer.writeheader()
-            for row in self.data[:train_amount]:
+            for row in data_copy[:train_amount]:
                 writer.writerow(row)
         with open(os.path.join(workdata_path, "Testing", "test.csv"), "w+", encoding="utf-8") as f:
             writer = csv.DictWriter(f, fieldnames=self.data[0].keys())
             writer.writeheader()
-            for row in self.data[train_amount:]:
+            for row in data_copy[train_amount:]:
                 writer.writerow(row)
     
 
