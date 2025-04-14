@@ -67,6 +67,8 @@ class Laba8:
         os.makedirs(os.path.join(workdata_path, "Testing"), exist_ok=True)
         train_amount = round(len(self.data) * 0.7)
         test_amount = len(self.data) - train_amount
+        data_copy = self.data.copy()
+        random.shuffle(data_copy)
         with open(os.path.join(workdata_path, "Learning", "train.csv"), "w+", encoding="utf-8") as f:
             writer = csv.DictWriter(f, fieldnames=self.data[0].keys())
             writer.writeheader()
